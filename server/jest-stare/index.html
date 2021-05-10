@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jest-stare!</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/diff2html.min.css" rel="stylesheet" type="text/css">
+    <link href="css/jest-stare.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/diff2html.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/view.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" id="navbar-title" href="#">jest-stare</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="coverage-link" class="nav-link disabled" href="#">Coverage</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-passoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-passoff-switch">
+                                <span class="pass off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-failoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-failoff-switch">
+                                <span class="fail off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-pendingoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-pendingoff-switch">
+                                <span class="pending off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-todooff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-todooff-switch">
+                                <span class="todo off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" disabled>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Search</button>
+                </form> -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+
+        <h1 class="mt-5"></h1>
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <canvas id="test-suites-canvas" width="100" height="100"></canvas>
+                <h2>Test Suites</h2>
+                <div class="list-group">
+                    <p id="test-suites-results" class="list-group-item list-group-item-action">4 passed, 4 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <canvas id="tests-canvas" width="100" height="100"></canvas>
+                <h2>Tests</h2>
+                <div class="list-group">
+                    <p id="tests-results" class="list-group-item list-group-item-action">12 passed, 12 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4" id="snapshots-group">
+                <canvas id="snapshots-canvas" width="100" height="100"></canvas>
+                <h2>Snapshots</h2>
+                <div class="list-group">
+                    <p id="snapshots-results" class="list-group-item list-group-item-action">0 passed, 0 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+
+        <div id="loading-info" class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                aria-valuemax="100" style="width: 100%"></div>
+        </div>
+
+        <div class="d-none" id="test-summary"></div>
+        <div class="d-none" id="test-config">{
+  &quot;additionalResultsProcessors&quot;: [],
+  &quot;resultDir&quot;: &quot;.&#x2F;jest-stare&#x2F;&quot;,
+  &quot;resultHtml&quot;: &quot;index.html&quot;,
+  &quot;resultJson&quot;: &quot;jest-results.json&quot;
+}</div>
+        <div id="accordion">
+            <div class="d-none" id="test-results">{
+  &quot;numFailedTestSuites&quot;: 0,
+  &quot;numFailedTests&quot;: 0,
+  &quot;numPassedTestSuites&quot;: 4,
+  &quot;numPassedTests&quot;: 12,
+  &quot;numPendingTestSuites&quot;: 0,
+  &quot;numPendingTests&quot;: 0,
+  &quot;numRuntimeErrorTestSuites&quot;: 0,
+  &quot;numTodoTests&quot;: 0,
+  &quot;numTotalTestSuites&quot;: 4,
+  &quot;numTotalTests&quot;: 12,
+  &quot;openHandles&quot;: [],
+  &quot;snapshot&quot;: {
+    &quot;added&quot;: 0,
+    &quot;didUpdate&quot;: false,
+    &quot;failure&quot;: false,
+    &quot;filesAdded&quot;: 0,
+    &quot;filesRemoved&quot;: 0,
+    &quot;filesRemovedList&quot;: [],
+    &quot;filesUnmatched&quot;: 0,
+    &quot;filesUpdated&quot;: 0,
+    &quot;matched&quot;: 0,
+    &quot;total&quot;: 0,
+    &quot;unchecked&quot;: 0,
+    &quot;uncheckedKeysByFile&quot;: [],
+    &quot;unmatched&quot;: 0,
+    &quot;updated&quot;: 0
+  },
+  &quot;startTime&quot;: 1620049850426,
+  &quot;success&quot;: false,
+  &quot;testResults&quot;: [
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 4,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1620049852206,
+        &quot;runtime&quot;: 796,
+        &quot;slow&quot;: false,
+        &quot;start&quot;: 1620049851410
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;repository&#x2F;get-summary-data.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 29,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Verify calling getSummaryData&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Verify calling getSummaryData&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 7,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Verify calling getSummaryData with more books than existing&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Verify calling getSummaryData with more books than existing&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 8,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Verify calling getSummaryData without any query&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Verify calling getSummaryData without any query&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 6,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Verify calling getSummaryData with number of books as 0&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Verify calling getSummaryData with number of books as 0&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    },
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 3,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1620049852210,
+        &quot;runtime&quot;: 800,
+        &quot;slow&quot;: false,
+        &quot;start&quot;: 1620049851410
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;application&#x2F;controller.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 3,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;test controller when results_length is equal to existing number of books&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;test controller when results_length is equal to existing number of books&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 1,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;test controller when results length is greater than existing&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;test controller when results length is greater than existing&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 0,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;test controller when there is empty response from getSummaryData&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;test controller when there is empty response from getSummaryData&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    },
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 4,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1620049854450,
+        &quot;runtime&quot;: 2367,
+        &quot;slow&quot;: false,
+        &quot;start&quot;: 1620049852083
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;repository&#x2F;get-author-data.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 245,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Verify calling getAuthorData&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Verify calling getAuthorData&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 521,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Verify calling getAuthorData with non existing book id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Verify calling getAuthorData with non existing book id&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 530,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Verify calling getAuthorData with no book id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Verify calling getAuthorData with no book id&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 488,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Verify calling getAuthorData with invalid book id&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Verify calling getAuthorData with invalid book id&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    },
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 1,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1620049854702,
+        &quot;runtime&quot;: 2614,
+        &quot;slow&quot;: false,
+        &quot;start&quot;: 1620049852088
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0,
+        &quot;uncheckedKeys&quot;: []
+      },
+      &quot;testFilePath&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;__tests__&#x2F;server.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Positive cases for Server&quot;
+          ],
+          &quot;duration&quot;: 535,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Positive cases for Server Search Summary and Author with Valid queries and count&quot;,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Search Summary and Author with Valid queries and count&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    }
+  ],
+  &quot;wasInterrupted&quot;: false,
+  &quot;coverageMap&quot;: {
+    &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;repository&#x2F;get-summary-data.js&quot;: {
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;repository&#x2F;get-summary-data.js&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 16
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 34
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 4,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 4,
+            &quot;column&quot;: 65
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 5,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 7
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 6,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 11
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 7,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 13
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 16
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 33
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 26
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 32
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;getSummaryData&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 3,
+              &quot;column&quot;: 9
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 3,
+              &quot;column&quot;: 23
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 3,
+              &quot;column&quot;: 46
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 13,
+              &quot;column&quot;: 1
+            }
+          },
+          &quot;line&quot;: 3
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 5,
+              &quot;column&quot;: 23
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 5,
+              &quot;column&quot;: 24
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 5,
+              &quot;column&quot;: 44
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 12,
+              &quot;column&quot;: 5
+            }
+          },
+          &quot;line&quot;: 5
+        },
+        &quot;2&quot;: {
+          &quot;name&quot;: &quot;(anonymous_2)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 6,
+              &quot;column&quot;: 80
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 6,
+              &quot;column&quot;: 81
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 6,
+              &quot;column&quot;: 94
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 11,
+              &quot;column&quot;: 9
+            }
+          },
+          &quot;line&quot;: 6
+        }
+      },
+      &quot;branchMap&quot;: {
+        &quot;0&quot;: {
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 7,
+              &quot;column&quot;: 12
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 9,
+              &quot;column&quot;: 13
+            }
+          },
+          &quot;type&quot;: &quot;if&quot;,
+          &quot;locations&quot;: [
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 7,
+                &quot;column&quot;: 12
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 9,
+                &quot;column&quot;: 13
+              }
+            },
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 7,
+                &quot;column&quot;: 12
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 9,
+                &quot;column&quot;: 13
+              }
+            }
+          ],
+          &quot;line&quot;: 7
+        }
+      },
+      &quot;s&quot;: {
+        &quot;0&quot;: 3,
+        &quot;1&quot;: 5,
+        &quot;2&quot;: 5,
+        &quot;3&quot;: 5,
+        &quot;4&quot;: 5,
+        &quot;5&quot;: 0,
+        &quot;6&quot;: 5,
+        &quot;7&quot;: 3
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 5,
+        &quot;1&quot;: 5,
+        &quot;2&quot;: 5
+      },
+      &quot;b&quot;: {
+        &quot;0&quot;: [
+          0,
+          5
+        ]
+      },
+      &quot;_coverageSchema&quot;: &quot;1a1c01bbd47fc00a2c39e90264f33305004495a9&quot;,
+      &quot;hash&quot;: &quot;a570a871b1954cf3495fa73f69c9e5af9659af6e&quot;
+    },
+    &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;repository&#x2F;get-author-data.js&quot;: {
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;repository&#x2F;get-author-data.js&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 16
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 34
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 4,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 4,
+            &quot;column&quot;: 41
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 5,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 7
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 6,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 11
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 7,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 13
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 16
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 33
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 26
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 31
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;getAuthorData&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 3,
+              &quot;column&quot;: 9
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 3,
+              &quot;column&quot;: 22
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 3,
+              &quot;column&quot;: 31
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 13,
+              &quot;column&quot;: 1
+            }
+          },
+          &quot;line&quot;: 3
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 5,
+              &quot;column&quot;: 23
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 5,
+              &quot;column&quot;: 24
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 5,
+              &quot;column&quot;: 44
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 12,
+              &quot;column&quot;: 5
+            }
+          },
+          &quot;line&quot;: 5
+        },
+        &quot;2&quot;: {
+          &quot;name&quot;: &quot;(anonymous_2)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 6,
+              &quot;column&quot;: 66
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 6,
+              &quot;column&quot;: 67
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 6,
+              &quot;column&quot;: 80
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 11,
+              &quot;column&quot;: 9
+            }
+          },
+          &quot;line&quot;: 6
+        }
+      },
+      &quot;branchMap&quot;: {
+        &quot;0&quot;: {
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 7,
+              &quot;column&quot;: 12
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 9,
+              &quot;column&quot;: 13
+            }
+          },
+          &quot;type&quot;: &quot;if&quot;,
+          &quot;locations&quot;: [
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 7,
+                &quot;column&quot;: 12
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 9,
+                &quot;column&quot;: 13
+              }
+            },
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 7,
+                &quot;column&quot;: 12
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 9,
+                &quot;column&quot;: 13
+              }
+            }
+          ],
+          &quot;line&quot;: 7
+        }
+      },
+      &quot;s&quot;: {
+        &quot;0&quot;: 3,
+        &quot;1&quot;: 5,
+        &quot;2&quot;: 5,
+        &quot;3&quot;: 5,
+        &quot;4&quot;: 5,
+        &quot;5&quot;: 0,
+        &quot;6&quot;: 5,
+        &quot;7&quot;: 3
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 5,
+        &quot;1&quot;: 5,
+        &quot;2&quot;: 5
+      },
+      &quot;b&quot;: {
+        &quot;0&quot;: [
+          0,
+          5
+        ]
+      },
+      &quot;_coverageSchema&quot;: &quot;1a1c01bbd47fc00a2c39e90264f33305004495a9&quot;,
+      &quot;hash&quot;: &quot;a9b54d02c70d14f5d6890a1e0ec8f0b960f41720&quot;
+    },
+    &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;application&#x2F;controller.js&quot;: {
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;application&#x2F;controller.js&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 22
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 62
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 2,
+            &quot;column&quot;: 23
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 2,
+            &quot;column&quot;: 64
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 5,
+            &quot;column&quot;: 38
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 5,
+            &quot;column&quot;: 46
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 6,
+            &quot;column&quot;: 20
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 6,
+            &quot;column&quot;: 22
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 7,
+            &quot;column&quot;: 20
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 7,
+            &quot;column&quot;: 22
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 29
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 6
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 61
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 25
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 11,
+            &quot;column&quot;: 60
+          }
+        },
+        &quot;8&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 23,
+            &quot;column&quot;: 7
+          }
+        },
+        &quot;9&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 13,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 22,
+            &quot;column&quot;: 9
+          }
+        },
+        &quot;10&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 17,
+            &quot;column&quot;: 24
+          }
+        },
+        &quot;11&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 16
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 15,
+            &quot;column&quot;: 31
+          }
+        },
+        &quot;12&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: 16
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: 27
+          }
+        },
+        &quot;13&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 18,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 20,
+            &quot;column&quot;: 14
+          }
+        },
+        &quot;14&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: 16
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: 38
+          }
+        },
+        &quot;15&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 21,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 21,
+            &quot;column&quot;: 35
+          }
+        },
+        &quot;16&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 24,
+            &quot;column&quot;: 28
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 26,
+            &quot;column&quot;: 6
+          }
+        },
+        &quot;17&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 25,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 25,
+            &quot;column&quot;: 37
+          }
+        },
+        &quot;18&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 27,
+            &quot;column&quot;: 24
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 27,
+            &quot;column&quot;: 58
+          }
+        },
+        &quot;19&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 28,
+            &quot;column&quot;: 22
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 31,
+            &quot;column&quot;: 9
+          }
+        },
+        &quot;20&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 29,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 29,
+            &quot;column&quot;: 47
+          }
+        },
+        &quot;21&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 30,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 30,
+            &quot;column&quot;: 19
+          }
+        },
+        &quot;22&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 32,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 36,
+            &quot;column&quot;: 7
+          }
+        },
+        &quot;23&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 33,
+            &quot;column&quot;: 8
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 35,
+            &quot;column&quot;: 11
+          }
+        },
+        &quot;24&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 34,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 34,
+            &quot;column&quot;: 49
+          }
+        },
+        &quot;25&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 37,
+            &quot;column&quot;: 4
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 37,
+            &quot;column&quot;: 22
+          }
+        },
+        &quot;26&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 40,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 40,
+            &quot;column&quot;: 26
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;getLogic&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 4,
+              &quot;column&quot;: 15
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 4,
+              &quot;column&quot;: 23
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 4,
+              &quot;column&quot;: 33
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 38,
+              &quot;column&quot;: 1
+            }
+          },
+          &quot;line&quot;: 4
+        },
+        &quot;1&quot;: {
+          &quot;name&quot;: &quot;(anonymous_1)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 8,
+              &quot;column&quot;: 41
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 8,
+              &quot;column&quot;: 42
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 8,
+              &quot;column&quot;: 50
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 10,
+              &quot;column&quot;: 5
+            }
+          },
+          &quot;line&quot;: 8
+        },
+        &quot;2&quot;: {
+          &quot;name&quot;: &quot;(anonymous_2)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 12,
+              &quot;column&quot;: 25
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 12,
+              &quot;column&quot;: 26
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 12,
+              &quot;column&quot;: 44
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 23,
+              &quot;column&quot;: 5
+            }
+          },
+          &quot;line&quot;: 12
+        },
+        &quot;3&quot;: {
+          &quot;name&quot;: &quot;(anonymous_3)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 28
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 29
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 40
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 17,
+              &quot;column&quot;: 13
+            }
+          },
+          &quot;line&quot;: 14
+        },
+        &quot;4&quot;: {
+          &quot;name&quot;: &quot;(anonymous_4)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 18,
+              &quot;column&quot;: 29
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 18,
+              &quot;column&quot;: 30
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 18,
+              &quot;column&quot;: 34
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 20,
+              &quot;column&quot;: 13
+            }
+          },
+          &quot;line&quot;: 18
+        },
+        &quot;5&quot;: {
+          &quot;name&quot;: &quot;(anonymous_5)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 24,
+              &quot;column&quot;: 40
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 24,
+              &quot;column&quot;: 41
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 24,
+              &quot;column&quot;: 50
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 26,
+              &quot;column&quot;: 5
+            }
+          },
+          &quot;line&quot;: 24
+        },
+        &quot;6&quot;: {
+          &quot;name&quot;: &quot;(anonymous_6)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 28,
+              &quot;column&quot;: 41
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 28,
+              &quot;column&quot;: 42
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 28,
+              &quot;column&quot;: 62
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 31,
+              &quot;column&quot;: 5
+            }
+          },
+          &quot;line&quot;: 28
+        },
+        &quot;7&quot;: {
+          &quot;name&quot;: &quot;(anonymous_7)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 32,
+              &quot;column&quot;: 20
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 32,
+              &quot;column&quot;: 21
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 32,
+              &quot;column&quot;: 35
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 36,
+              &quot;column&quot;: 5
+            }
+          },
+          &quot;line&quot;: 32
+        },
+        &quot;8&quot;: {
+          &quot;name&quot;: &quot;(anonymous_8)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 33,
+              &quot;column&quot;: 28
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 33,
+              &quot;column&quot;: 29
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 33,
+              &quot;column&quot;: 38
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 35,
+              &quot;column&quot;: 9
+            }
+          },
+          &quot;line&quot;: 33
+        }
+      },
+      &quot;branchMap&quot;: {
+        &quot;0&quot;: {
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 13,
+              &quot;column&quot;: 8
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 22,
+              &quot;column&quot;: 9
+            }
+          },
+          &quot;type&quot;: &quot;if&quot;,
+          &quot;locations&quot;: [
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 13,
+                &quot;column&quot;: 8
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 22,
+                &quot;column&quot;: 9
+              }
+            },
+            {
+              &quot;start&quot;: {
+                &quot;line&quot;: 13,
+                &quot;column&quot;: 8
+              },
+              &quot;end&quot;: {
+                &quot;line&quot;: 22,
+                &quot;column&quot;: 9
+              }
+            }
+          ],
+          &quot;line&quot;: 13
+        }
+      },
+      &quot;s&quot;: {
+        &quot;0&quot;: 2,
+        &quot;1&quot;: 2,
+        &quot;2&quot;: 4,
+        &quot;3&quot;: 4,
+        &quot;4&quot;: 4,
+        &quot;5&quot;: 4,
+        &quot;6&quot;: 6,
+        &quot;7&quot;: 4,
+        &quot;8&quot;: 4,
+        &quot;9&quot;: 6,
+        &quot;10&quot;: 5,
+        &quot;11&quot;: 5,
+        &quot;12&quot;: 5,
+        &quot;13&quot;: 5,
+        &quot;14&quot;: 5,
+        &quot;15&quot;: 5,
+        &quot;16&quot;: 4,
+        &quot;17&quot;: 5,
+        &quot;18&quot;: 4,
+        &quot;19&quot;: 4,
+        &quot;20&quot;: 5,
+        &quot;21&quot;: 5,
+        &quot;22&quot;: 4,
+        &quot;23&quot;: 5,
+        &quot;24&quot;: 5,
+        &quot;25&quot;: 4,
+        &quot;26&quot;: 2
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 4,
+        &quot;1&quot;: 6,
+        &quot;2&quot;: 6,
+        &quot;3&quot;: 5,
+        &quot;4&quot;: 5,
+        &quot;5&quot;: 5,
+        &quot;6&quot;: 5,
+        &quot;7&quot;: 5,
+        &quot;8&quot;: 5
+      },
+      &quot;b&quot;: {
+        &quot;0&quot;: [
+          5,
+          1
+        ]
+      },
+      &quot;_coverageSchema&quot;: &quot;1a1c01bbd47fc00a2c39e90264f33305004495a9&quot;,
+      &quot;hash&quot;: &quot;e57ee069757f107bb423bc94cd968f38a81023cf&quot;
+    },
+    &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;commonTest.js&quot;: {
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;commonTest.js&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 16
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 36
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 2,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 2,
+            &quot;column&quot;: 35
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 19,
+            &quot;column&quot;: 5
+          }
+        }
+      },
+      &quot;fnMap&quot;: {},
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 1,
+        &quot;1&quot;: 1,
+        &quot;2&quot;: 1
+      },
+      &quot;f&quot;: {},
+      &quot;b&quot;: {},
+      &quot;_coverageSchema&quot;: &quot;1a1c01bbd47fc00a2c39e90264f33305004495a9&quot;,
+      &quot;hash&quot;: &quot;ccc0cd03dae20c4e84800531017c25641aaa96ad&quot;
+    },
+    &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;api&#x2F;server.js&quot;: {
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;api&#x2F;server.js&quot;,
+      &quot;statementMap&quot;: {
+        &quot;0&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 16
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 1,
+            &quot;column&quot;: 34
+          }
+        },
+        &quot;1&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 2,
+            &quot;column&quot;: 19
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 2,
+            &quot;column&quot;: 41
+          }
+        },
+        &quot;2&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 3,
+            &quot;column&quot;: 13
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 3,
+            &quot;column&quot;: 28
+          }
+        },
+        &quot;3&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 4,
+            &quot;column&quot;: 12
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 4,
+            &quot;column&quot;: 21
+          }
+        },
+        &quot;4&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 6,
+            &quot;column&quot;: 17
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 6,
+            &quot;column&quot;: 53
+          }
+        },
+        &quot;5&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 8,
+            &quot;column&quot;: 22
+          }
+        },
+        &quot;6&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 9,
+            &quot;column&quot;: 16
+          }
+        },
+        &quot;7&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 13
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 10,
+            &quot;column&quot;: 17
+          }
+        },
+        &quot;8&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 12,
+            &quot;column&quot;: 24
+          }
+        },
+        &quot;9&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 77
+          }
+        },
+        &quot;10&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 23
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 14,
+            &quot;column&quot;: 76
+          }
+        },
+        &quot;11&quot;: {
+          &quot;start&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: 0
+          },
+          &quot;end&quot;: {
+            &quot;line&quot;: 16,
+            &quot;column&quot;: 21
+          }
+        }
+      },
+      &quot;fnMap&quot;: {
+        &quot;0&quot;: {
+          &quot;name&quot;: &quot;(anonymous_0)&quot;,
+          &quot;decl&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 17
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 18
+            }
+          },
+          &quot;loc&quot;: {
+            &quot;start&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 23
+            },
+            &quot;end&quot;: {
+              &quot;line&quot;: 14,
+              &quot;column&quot;: 76
+            }
+          },
+          &quot;line&quot;: 14
+        }
+      },
+      &quot;branchMap&quot;: {},
+      &quot;s&quot;: {
+        &quot;0&quot;: 1,
+        &quot;1&quot;: 1,
+        &quot;2&quot;: 1,
+        &quot;3&quot;: 1,
+        &quot;4&quot;: 1,
+        &quot;5&quot;: 1,
+        &quot;6&quot;: 1,
+        &quot;7&quot;: 1,
+        &quot;8&quot;: 1,
+        &quot;9&quot;: 1,
+        &quot;10&quot;: 1,
+        &quot;11&quot;: 1
+      },
+      &quot;f&quot;: {
+        &quot;0&quot;: 1
+      },
+      &quot;b&quot;: {},
+      &quot;_coverageSchema&quot;: &quot;1a1c01bbd47fc00a2c39e90264f33305004495a9&quot;,
+      &quot;hash&quot;: &quot;05498b7b2d9471b2a0a1bd87f827cfe3d5e7cae5&quot;
+    }
+  }
+}</div>
+        </div>
+        <div class="d-none" id="test-global-config">{
+  &quot;bail&quot;: 0,
+  &quot;changedFilesWithAncestor&quot;: false,
+  &quot;collectCoverage&quot;: true,
+  &quot;collectCoverageFrom&quot;: [],
+  &quot;coverageDirectory&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;coverage&quot;,
+  &quot;coverageProvider&quot;: &quot;babel&quot;,
+  &quot;coverageReporters&quot;: [
+    &quot;json&quot;,
+    &quot;text&quot;,
+    &quot;lcov&quot;,
+    &quot;clover&quot;
+  ],
+  &quot;detectLeaks&quot;: false,
+  &quot;detectOpenHandles&quot;: false,
+  &quot;errorOnDeprecated&quot;: false,
+  &quot;expand&quot;: false,
+  &quot;findRelatedTests&quot;: false,
+  &quot;forceExit&quot;: false,
+  &quot;json&quot;: false,
+  &quot;lastCommit&quot;: false,
+  &quot;listTests&quot;: false,
+  &quot;logHeapUsage&quot;: false,
+  &quot;maxConcurrency&quot;: 5,
+  &quot;maxWorkers&quot;: 11,
+  &quot;noStackTrace&quot;: false,
+  &quot;nonFlagArgs&quot;: [],
+  &quot;notify&quot;: false,
+  &quot;notifyMode&quot;: &quot;failure-change&quot;,
+  &quot;onlyChanged&quot;: false,
+  &quot;onlyFailures&quot;: false,
+  &quot;passWithNoTests&quot;: false,
+  &quot;projects&quot;: [],
+  &quot;reporters&quot;: [
+    [
+      &quot;default&quot;,
+      {}
+    ],
+    [
+      &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&#x2F;node_modules&#x2F;jest-stare&#x2F;lib&#x2F;index.js&quot;,
+      {}
+    ]
+  ],
+  &quot;rootDir&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;server&quot;,
+  &quot;runTestsByPath&quot;: false,
+  &quot;skipFilter&quot;: false,
+  &quot;testFailureExitCode&quot;: 1,
+  &quot;testPathPattern&quot;: &quot;&quot;,
+  &quot;testSequencer&quot;: &quot;&#x2F;Users&#x2F;abhiramkalagarla&#x2F;Downloads&#x2F;unibuddy-challenge-sdet-master&#x2F;node_modules&#x2F;@jest&#x2F;test-sequencer&#x2F;build&#x2F;index.js&quot;,
+  &quot;updateSnapshot&quot;: &quot;new&quot;,
+  &quot;useStderr&quot;: false,
+  &quot;watch&quot;: false,
+  &quot;watchAll&quot;: false,
+  &quot;watchman&quot;: true
+}</div>
+
+    </main>
+    <hr>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">jest-stare 2020</span>
+        </div>
+    </footer>
+</body>
+
+</html>
+

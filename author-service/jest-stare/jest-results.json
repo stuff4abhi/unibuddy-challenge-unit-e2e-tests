@@ -1,0 +1,210 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 3,
+  "numPassedTests": 8,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 3,
+  "numTotalTests": 8,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1620049612691,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1620049614116,
+        "runtime": 552,
+        "slow": false,
+        "start": 1620049613564
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/author-service/application/controller.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "verify if getData is called when book Id is present in the request",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "verify if getData is called when book Id is present in the request"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "verify if getData is called when book Id is absent in the request",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "verify if getData is called when book Id is absent in the request"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 4,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1620049616099,
+        "runtime": 2535,
+        "slow": false,
+        "start": 1620049613564
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/author-service/repository/get-data.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [],
+          "duration": 540,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 248,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData with non existing book id",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData with non existing book id"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 317,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData with no book id",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData with no book id"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 881,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData with invalid book id",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData with invalid book id"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1620049617036,
+        "runtime": 3471,
+        "slow": false,
+        "start": 1620049613565
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/author-service/__tests__/author-service.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Positive cases for Author search"
+          ],
+          "duration": 608,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Positive cases for Author search Search Author Valid Book id",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Search Author Valid Book id"
+        },
+        {
+          "ancestorTitles": [
+            "Negative cases for Author search"
+          ],
+          "duration": 587,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Negative cases for Author search Search Author Valid Book id",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Search Author Valid Book id"
+        }
+      ],
+      "failureMessage": null
+    }
+  ],
+  "wasInterrupted": false
+}

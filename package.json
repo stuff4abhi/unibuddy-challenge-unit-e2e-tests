@@ -1,0 +1,21 @@
+{
+  "name": "unibuddy-challenge-sdet-master",
+  "version": "1.0.0",
+  "description": "Unibuddy has built a service that allows students to search through coursebooks summaries which would make picking  and buying a coursebook a much better experience for students.",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "request": "^2.88.2",
+    "yarn": "^1.22.10"
+  },
+  "devDependencies": {
+    "jest-stare": "^2.2.2"
+  },
+  "scripts": {
+    "test": "jest --reporters default jest-stare"
+  },
+  "author": "",
+  "license": "ISC"
+}

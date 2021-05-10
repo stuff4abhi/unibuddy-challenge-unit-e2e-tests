@@ -1,0 +1,1336 @@
+{
+  "numFailedTestSuites": 1,
+  "numFailedTests": 1,
+  "numPassedTestSuites": 2,
+  "numPassedTests": 11,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 3,
+  "numTotalTests": 12,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1620111050479,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 4,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1620111052339,
+        "runtime": 798,
+        "slow": false,
+        "start": 1620111051541
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/repository/get-data.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [],
+          "duration": 4,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 5,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData with more books than existing",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData with more books than existing"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData without any query",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData without any query"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData with number of books as 0",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData with number of books as 0"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 4,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1620111052384,
+        "runtime": 842,
+        "slow": false,
+        "start": 1620111051542
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/application/controller.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData when query is absent in req",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData when query is absent in req"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData when results_length is absent in req",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData when results_length is absent in req"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Verify calling getData when both query and results_length are absent in req",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Verify calling getData when both query and results_length are absent in req"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 1,
+      "numPassingTests": 3,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1620111054254,
+        "runtime": 2698,
+        "slow": false,
+        "start": 1620111051556
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/__tests__/search-service.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Positive cases for search"
+          ],
+          "duration": 43,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Positive cases for search Search with Valid query - 1 word",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Search with Valid query - 1 word"
+        },
+        {
+          "ancestorTitles": [
+            "Positive cases for search"
+          ],
+          "duration": 7,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Positive cases for search Search with Valid query - multi word",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Search with Valid query - multi word"
+        },
+        {
+          "ancestorTitles": [
+            "Negative cases for search"
+          ],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Negative cases for search Search with InValid query - 1 word",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "Search with InValid query - 1 word"
+        },
+        {
+          "ancestorTitles": [
+            "Negative cases for search"
+          ],
+          "duration": 5,
+          "failureDetails": [
+            {
+              "actual": "",
+              "error": {
+                "matcherResult": {
+                  "actual": 53,
+                  "expected": -2,
+                  "name": "toEqual",
+                  "pass": false
+                }
+              },
+              "expected": "",
+              "matcherName": "",
+              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m-2\u001b[39m\nReceived: \u001b[31m53\u001b[39m",
+              "passed": false,
+              "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m-2\u001b[39m\nReceived: \u001b[31m53\u001b[39m\n    at Object.<anonymous> (/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/__tests__/search-service.test.js:98:33)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+            }
+          ],
+          "failureMessages": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m-2\u001b[39m\nReceived: \u001b[31m53\u001b[39m\n    at Object.<anonymous> (/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/__tests__/search-service.test.js:98:33)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+          ],
+          "fullName": "Negative cases for search Search with InValid results_length - multi word",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "failed",
+          "title": "Search with InValid results_length - multi word"
+        }
+      ],
+      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mNegative cases for search › Search with InValid results_length - multi word\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n    Expected: \u001b[32m-2\u001b[39m\n    Received: \u001b[31m53\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  96 |\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  97 |\u001b[39m         expect(res\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoEqual(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m  98 |\u001b[39m         expect(res\u001b[33m.\u001b[39mbody\u001b[33m.\u001b[39mlength)\u001b[33m.\u001b[39mtoEqual(body\u001b[33m.\u001b[39mresults_length)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m     |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  99 |\u001b[39m         expect(res\u001b[33m.\u001b[39mbody[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39msummary\u001b[33m.\u001b[39mtoLowerCase())\u001b[33m.\u001b[39mtoContain(body\u001b[33m.\u001b[39mquery\u001b[33m.\u001b[39mtoLowerCase()\u001b[33m.\u001b[39msplit(\u001b[32m\" \"\u001b[39m)[\u001b[35m0\u001b[39m])\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 100 |\u001b[39m         expect(res\u001b[33m.\u001b[39mbody[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39msummary\u001b[33m.\u001b[39mtoLowerCase())\u001b[33m.\u001b[39mtoContain(body\u001b[33m.\u001b[39mquery\u001b[33m.\u001b[39mtoLowerCase()\u001b[33m.\u001b[39msplit(\u001b[32m\" \"\u001b[39m)[\u001b[35m1\u001b[39m])\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 101 |\u001b[39m         expect(res\u001b[33m.\u001b[39mbody[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39msummary\u001b[33m.\u001b[39mtoLowerCase())\u001b[33m.\u001b[39mtoContain(body\u001b[33m.\u001b[39mquery\u001b[33m.\u001b[39mtoLowerCase()\u001b[33m.\u001b[39msplit(\u001b[32m\" \"\u001b[39m)[\u001b[35m0\u001b[39m])\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36m__tests__/search-service.test.js\u001b[39m\u001b[0m\u001b[2m:98:33)\u001b[22m\u001b[2m\u001b[22m\n"
+    }
+  ],
+  "wasInterrupted": false,
+  "coverageMap": {
+    "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/repository/get-data.js": {
+      "path": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/repository/get-data.js",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 1,
+            "column": 15
+          },
+          "end": {
+            "line": 1,
+            "column": 37
+          }
+        },
+        "1": {
+          "start": {
+            "line": 3,
+            "column": 0
+          },
+          "end": {
+            "line": 17,
+            "column": 3
+          }
+        },
+        "2": {
+          "start": {
+            "line": 4,
+            "column": 23
+          },
+          "end": {
+            "line": 4,
+            "column": 36
+          }
+        },
+        "3": {
+          "start": {
+            "line": 5,
+            "column": 23
+          },
+          "end": {
+            "line": 5,
+            "column": 44
+          }
+        },
+        "4": {
+          "start": {
+            "line": 6,
+            "column": 4
+          },
+          "end": {
+            "line": 6,
+            "column": 76
+          }
+        },
+        "5": {
+          "start": {
+            "line": 7,
+            "column": 4
+          },
+          "end": {
+            "line": 7,
+            "column": 32
+          }
+        },
+        "6": {
+          "start": {
+            "line": 8,
+            "column": 4
+          },
+          "end": {
+            "line": 16,
+            "column": 7
+          }
+        },
+        "7": {
+          "start": {
+            "line": 9,
+            "column": 8
+          },
+          "end": {
+            "line": 15,
+            "column": 9
+          }
+        },
+        "8": {
+          "start": {
+            "line": 10,
+            "column": 12
+          },
+          "end": {
+            "line": 10,
+            "column": 45
+          }
+        },
+        "9": {
+          "start": {
+            "line": 11,
+            "column": 24
+          },
+          "end": {
+            "line": 11,
+            "column": 44
+          }
+        },
+        "10": {
+          "start": {
+            "line": 12,
+            "column": 28
+          },
+          "end": {
+            "line": 12,
+            "column": 51
+          }
+        },
+        "11": {
+          "start": {
+            "line": 13,
+            "column": 12
+          },
+          "end": {
+            "line": 14,
+            "column": 76
+          }
+        },
+        "12": {
+          "start": {
+            "line": 14,
+            "column": 16
+          },
+          "end": {
+            "line": 14,
+            "column": 76
+          }
+        },
+        "13": {
+          "start": {
+            "line": 20,
+            "column": 18
+          },
+          "end": {
+            "line": 20,
+            "column": 48
+          }
+        },
+        "14": {
+          "start": {
+            "line": 21,
+            "column": 27
+          },
+          "end": {
+            "line": 21,
+            "column": 29
+          }
+        },
+        "15": {
+          "start": {
+            "line": 22,
+            "column": 4
+          },
+          "end": {
+            "line": 30,
+            "column": 11
+          }
+        },
+        "16": {
+          "start": {
+            "line": 23,
+            "column": 22
+          },
+          "end": {
+            "line": 27,
+            "column": 13
+          }
+        },
+        "17": {
+          "start": {
+            "line": 24,
+            "column": 12
+          },
+          "end": {
+            "line": 25,
+            "column": 39
+          }
+        },
+        "18": {
+          "start": {
+            "line": 25,
+            "column": 16
+          },
+          "end": {
+            "line": 25,
+            "column": 39
+          }
+        },
+        "19": {
+          "start": {
+            "line": 26,
+            "column": 12
+          },
+          "end": {
+            "line": 26,
+            "column": 23
+          }
+        },
+        "20": {
+          "start": {
+            "line": 28,
+            "column": 8
+          },
+          "end": {
+            "line": 29,
+            "column": 92
+          }
+        },
+        "21": {
+          "start": {
+            "line": 29,
+            "column": 12
+          },
+          "end": {
+            "line": 29,
+            "column": 92
+          }
+        },
+        "22": {
+          "start": {
+            "line": 31,
+            "column": 4
+          },
+          "end": {
+            "line": 35,
+            "column": 7
+          }
+        },
+        "23": {
+          "start": {
+            "line": 32,
+            "column": 8
+          },
+          "end": {
+            "line": 33,
+            "column": 21
+          }
+        },
+        "24": {
+          "start": {
+            "line": 33,
+            "column": 12
+          },
+          "end": {
+            "line": 33,
+            "column": 21
+          }
+        },
+        "25": {
+          "start": {
+            "line": 34,
+            "column": 8
+          },
+          "end": {
+            "line": 34,
+            "column": 18
+          }
+        },
+        "26": {
+          "start": {
+            "line": 36,
+            "column": 4
+          },
+          "end": {
+            "line": 36,
+            "column": 89
+          }
+        },
+        "27": {
+          "start": {
+            "line": 39,
+            "column": 0
+          },
+          "end": {
+            "line": 39,
+            "column": 25
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 3,
+              "column": 25
+            },
+            "end": {
+              "line": 3,
+              "column": 26
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 44
+            },
+            "end": {
+              "line": 17,
+              "column": 1
+            }
+          },
+          "line": 3
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": {
+              "line": 8,
+              "column": 36
+            },
+            "end": {
+              "line": 8,
+              "column": 37
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 43
+            },
+            "end": {
+              "line": 16,
+              "column": 5
+            }
+          },
+          "line": 8
+        },
+        "2": {
+          "name": "getData",
+          "decl": {
+            "start": {
+              "line": 19,
+              "column": 9
+            },
+            "end": {
+              "line": 19,
+              "column": 16
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 26
+            },
+            "end": {
+              "line": 37,
+              "column": 1
+            }
+          },
+          "line": 19
+        },
+        "3": {
+          "name": "(anonymous_3)",
+          "decl": {
+            "start": {
+              "line": 22,
+              "column": 29
+            },
+            "end": {
+              "line": 22,
+              "column": 30
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 58
+            },
+            "end": {
+              "line": 30,
+              "column": 5
+            }
+          },
+          "line": 22
+        },
+        "4": {
+          "name": "(anonymous_4)",
+          "decl": {
+            "start": {
+              "line": 23,
+              "column": 35
+            },
+            "end": {
+              "line": 23,
+              "column": 36
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 50
+            },
+            "end": {
+              "line": 27,
+              "column": 9
+            }
+          },
+          "line": 23
+        },
+        "5": {
+          "name": "(anonymous_5)",
+          "decl": {
+            "start": {
+              "line": 31,
+              "column": 26
+            },
+            "end": {
+              "line": 31,
+              "column": 27
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 35
+            },
+            "end": {
+              "line": 35,
+              "column": 5
+            }
+          },
+          "line": 31
+        }
+      },
+      "branchMap": {
+        "0": {
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 8
+            },
+            "end": {
+              "line": 15,
+              "column": 9
+            }
+          },
+          "type": "if",
+          "locations": [
+            {
+              "start": {
+                "line": 9,
+                "column": 8
+              },
+              "end": {
+                "line": 15,
+                "column": 9
+              }
+            },
+            {
+              "start": {
+                "line": 9,
+                "column": 8
+              },
+              "end": {
+                "line": 15,
+                "column": 9
+              }
+            }
+          ],
+          "line": 9
+        },
+        "1": {
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 12
+            },
+            "end": {
+              "line": 14,
+              "column": 76
+            }
+          },
+          "type": "if",
+          "locations": [
+            {
+              "start": {
+                "line": 13,
+                "column": 12
+              },
+              "end": {
+                "line": 14,
+                "column": 76
+              }
+            },
+            {
+              "start": {
+                "line": 13,
+                "column": 12
+              },
+              "end": {
+                "line": 14,
+                "column": 76
+              }
+            }
+          ],
+          "line": 13
+        },
+        "2": {
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 47
+            },
+            "end": {
+              "line": 14,
+              "column": 75
+            }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": {
+                "line": 14,
+                "column": 57
+              },
+              "end": {
+                "line": 14,
+                "column": 71
+              }
+            },
+            {
+              "start": {
+                "line": 14,
+                "column": 74
+              },
+              "end": {
+                "line": 14,
+                "column": 75
+              }
+            }
+          ],
+          "line": 14
+        },
+        "3": {
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 12
+            },
+            "end": {
+              "line": 25,
+              "column": 39
+            }
+          },
+          "type": "if",
+          "locations": [
+            {
+              "start": {
+                "line": 24,
+                "column": 12
+              },
+              "end": {
+                "line": 25,
+                "column": 39
+              }
+            },
+            {
+              "start": {
+                "line": 24,
+                "column": 12
+              },
+              "end": {
+                "line": 25,
+                "column": 39
+              }
+            }
+          ],
+          "line": 24
+        },
+        "4": {
+          "loc": {
+            "start": {
+              "line": 28,
+              "column": 8
+            },
+            "end": {
+              "line": 29,
+              "column": 92
+            }
+          },
+          "type": "if",
+          "locations": [
+            {
+              "start": {
+                "line": 28,
+                "column": 8
+              },
+              "end": {
+                "line": 29,
+                "column": 92
+              }
+            },
+            {
+              "start": {
+                "line": 28,
+                "column": 8
+              },
+              "end": {
+                "line": 29,
+                "column": 92
+              }
+            }
+          ],
+          "line": 28
+        },
+        "5": {
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 8
+            },
+            "end": {
+              "line": 33,
+              "column": 21
+            }
+          },
+          "type": "if",
+          "locations": [
+            {
+              "start": {
+                "line": 32,
+                "column": 8
+              },
+              "end": {
+                "line": 33,
+                "column": 21
+              }
+            },
+            {
+              "start": {
+                "line": 32,
+                "column": 8
+              },
+              "end": {
+                "line": 33,
+                "column": 21
+              }
+            }
+          ],
+          "line": 32
+        },
+        "6": {
+          "loc": {
+            "start": {
+              "line": 36,
+              "column": 11
+            },
+            "end": {
+              "line": 36,
+              "column": 88
+            }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": {
+                "line": 36,
+                "column": 41
+              },
+              "end": {
+                "line": 36,
+                "column": 57
+              }
+            },
+            {
+              "start": {
+                "line": 36,
+                "column": 60
+              },
+              "end": {
+                "line": 36,
+                "column": 88
+              }
+            }
+          ],
+          "line": 36
+        }
+      },
+      "s": {
+        "0": 3,
+        "1": 3,
+        "2": 165,
+        "3": 165,
+        "4": 165,
+        "5": 165,
+        "6": 165,
+        "7": 10761,
+        "8": 10761,
+        "9": 10761,
+        "10": 10761,
+        "11": 10761,
+        "12": 7971,
+        "13": 8,
+        "14": 8,
+        "15": 8,
+        "16": 440,
+        "17": 660,
+        "18": 389,
+        "19": 660,
+        "20": 440,
+        "21": 277,
+        "22": 8,
+        "23": 1219,
+        "24": 369,
+        "25": 850,
+        "26": 8,
+        "27": 3
+      },
+      "f": {
+        "0": 165,
+        "1": 10761,
+        "2": 8,
+        "3": 440,
+        "4": 660,
+        "5": 1219
+      },
+      "b": {
+        "0": [
+          10761,
+          0
+        ],
+        "1": [
+          7971,
+          2790
+        ],
+        "2": [
+          7740,
+          231
+        ],
+        "3": [
+          389,
+          271
+        ],
+        "4": [
+          277,
+          163
+        ],
+        "5": [
+          369,
+          850
+        ],
+        "6": [
+          3,
+          5
+        ]
+      },
+      "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+      "hash": "8b6d01174c03678d9ebab49cdf6bcaa5cc6772bd"
+    },
+    "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/application/controller.js": {
+      "path": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/application/controller.js",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 1,
+            "column": 16
+          },
+          "end": {
+            "line": 1,
+            "column": 49
+          }
+        },
+        "1": {
+          "start": {
+            "line": 5,
+            "column": 36
+          },
+          "end": {
+            "line": 5,
+            "column": 44
+          }
+        },
+        "2": {
+          "start": {
+            "line": 7,
+            "column": 4
+          },
+          "end": {
+            "line": 7,
+            "column": 45
+          }
+        },
+        "3": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": 26
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "getLogic",
+          "decl": {
+            "start": {
+              "line": 4,
+              "column": 15
+            },
+            "end": {
+              "line": 4,
+              "column": 23
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 33
+            },
+            "end": {
+              "line": 8,
+              "column": 1
+            }
+          },
+          "line": 4
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 2,
+        "1": 8,
+        "2": 8,
+        "3": 2
+      },
+      "f": {
+        "0": 8
+      },
+      "b": {},
+      "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+      "hash": "554746bef24019782f2067ea5c85ceac78907105"
+    },
+    "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/commonTest.js": {
+      "path": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/commonTest.js",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 1,
+            "column": 16
+          },
+          "end": {
+            "line": 1,
+            "column": 36
+          }
+        },
+        "1": {
+          "start": {
+            "line": 2,
+            "column": 12
+          },
+          "end": {
+            "line": 2,
+            "column": 35
+          }
+        },
+        "2": {
+          "start": {
+            "line": 14,
+            "column": 0
+          },
+          "end": {
+            "line": 19,
+            "column": 5
+          }
+        }
+      },
+      "fnMap": {},
+      "branchMap": {},
+      "s": {
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "f": {},
+      "b": {},
+      "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+      "hash": "cc0f37de016c969c637b973c27c3543348e077fa"
+    },
+    "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/api/server.js": {
+      "path": "/Users/abhiramkalagarla/Downloads/unibuddy-challenge-sdet-master/search-service/api/server.js",
+      "statementMap": {
+        "0": {
+          "start": {
+            "line": 1,
+            "column": 16
+          },
+          "end": {
+            "line": 1,
+            "column": 34
+          }
+        },
+        "1": {
+          "start": {
+            "line": 2,
+            "column": 19
+          },
+          "end": {
+            "line": 2,
+            "column": 41
+          }
+        },
+        "2": {
+          "start": {
+            "line": 3,
+            "column": 13
+          },
+          "end": {
+            "line": 3,
+            "column": 28
+          }
+        },
+        "3": {
+          "start": {
+            "line": 4,
+            "column": 12
+          },
+          "end": {
+            "line": 4,
+            "column": 21
+          }
+        },
+        "4": {
+          "start": {
+            "line": 6,
+            "column": 17
+          },
+          "end": {
+            "line": 6,
+            "column": 53
+          }
+        },
+        "5": {
+          "start": {
+            "line": 8,
+            "column": 0
+          },
+          "end": {
+            "line": 8,
+            "column": 22
+          }
+        },
+        "6": {
+          "start": {
+            "line": 9,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 16
+          }
+        },
+        "7": {
+          "start": {
+            "line": 10,
+            "column": 13
+          },
+          "end": {
+            "line": 10,
+            "column": 17
+          }
+        },
+        "8": {
+          "start": {
+            "line": 12,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": 24
+          }
+        },
+        "9": {
+          "start": {
+            "line": 14,
+            "column": 0
+          },
+          "end": {
+            "line": 14,
+            "column": 77
+          }
+        },
+        "10": {
+          "start": {
+            "line": 14,
+            "column": 23
+          },
+          "end": {
+            "line": 14,
+            "column": 76
+          }
+        },
+        "11": {
+          "start": {
+            "line": 16,
+            "column": 0
+          },
+          "end": {
+            "line": 16,
+            "column": 21
+          }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": {
+              "line": 14,
+              "column": 17
+            },
+            "end": {
+              "line": 14,
+              "column": 18
+            }
+          },
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 23
+            },
+            "end": {
+              "line": 14,
+              "column": 76
+            }
+          },
+          "line": 14
+        }
+      },
+      "branchMap": {},
+      "s": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1
+      },
+      "f": {
+        "0": 1
+      },
+      "b": {},
+      "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+      "hash": "cd36ba4c78be090134970038f965ccd6975dcca4"
+    }
+  }
+}
